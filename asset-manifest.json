@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ui-component-library/static/css/main.a23e7c72.css",
+    "main.js": "/ui-component-library/static/js/main.4aa60f29.js",
+    "index.html": "/ui-component-library/index.html",
+    "main.a23e7c72.css.map": "/ui-component-library/static/css/main.a23e7c72.css.map",
+    "main.4aa60f29.js.map": "/ui-component-library/static/js/main.4aa60f29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a23e7c72.css",
+    "static/js/main.4aa60f29.js"
+  ]
+}
