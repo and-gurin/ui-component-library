@@ -22,13 +22,24 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: left;
     position: relative;
 }
 
-.name {
+.iconLeft {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    left: 16px;
+}
+
+.iconRight {
+    position: absolute;
+    margin-left: auto;
+    right: 16px;
+}
+
+.iconSide {
+    position: absolute;
+    margin-left: 70px;
 }
 
 .primary {
@@ -43,7 +54,7 @@
     color: var(--sky-white);
 }
 
-.primary:disabled {
+.primaryDisabled {
     border: solid 1px var(--sky-light);
     background-color: var(--sky-light);
     color: var(--sky-dark);
@@ -61,22 +72,43 @@
     color: var(--primary-base);
 }
 
-.secondary:disabled {
+.secondaryDisabled {
     border: solid 1px var(--sky-light);
     background-color: var(--sky-light);
     color: var(--sky-dark);
 }
 
-.left {
-    margin-left: 16px;
+.outline {
+    border: solid 1px var(--primary-base);
+    background: none;
+    color: var(--primary-base);
 }
 
-.right {
-    margin-left: auto;
-    margin-right: 16px;
+.outline:active {
+    border: solid 1px var(--primary-dark);
+    background: none;
+    color: var(--primary-dark);
 }
 
-.side {
-    margin-left: 70px;
+.outlineDisabled {
+    border: solid 1px var(--sky-base);
+    color: var(--sky-base);
 }
+
+.transparent {
+    color: var(--primary-base);
+    background: none;
+    border: none;
+}
+
+.transparent:active {
+    border: solid 1px var(--primary-lightest);
+    background-color: var(--primary-lightest);
+    color: var(--primary-base);
+}
+
+.transparentDisabled {
+    color: var(--sky-base);
+}
+
 
