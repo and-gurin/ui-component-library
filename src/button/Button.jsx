@@ -31,7 +31,7 @@ const Button = ({disabled, title, titlePosition, isIcon, iconMarginLeft, iconMar
                     <path className={finalClassName + ' ' + disabledClassName}
                           d="M1 8H15M15 8L7.99998 0.999878M15 8L7.99998 14.9999"
                           stroke="currentColor"
-                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
 
             </div>
