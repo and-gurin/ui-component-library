@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import Button from 'buttons/Button';
-import {Slider} from "@mui/material";
+import Button from 'button/Button';
 
 const xTypes = [
     {id: 1, value: 'primary'},
@@ -9,130 +8,75 @@ const xTypes = [
     {id: 4, value: 'transparent'}
 ]
 
-const buttonHeights = [
-    {id: 1, value: '48px'},
-    {id: 2, value: '32px'},
-]
-
-const iconWidths = [
-    {id: 1, value: '16px'},
-    {id: 2, value: '24px'},
-]
-
-const iconPlaces = [
-    {id: 1, value: 'iconLeft'},
-    {id: 2, value: 'iconRight'},
-    {id: 3, value: 'iconSide'},
+const sizes = [
+    {id: 1, value: 'block'},
+    {id: 2, value: 'large'},
+    {id: 3, value: 'small'},
 ]
 
 const Stand = () => {
-    const [xType, setXType] = useState('')
+    const [xType, setXType] = useState('primary')
     const [disabled, setDisabled] = useState(false)
-    const [buttonHeight, setButtonHeight] = useState('')
     const [iconPlace, setIconPlace] = useState('')
-    const [buttonWidth, setButtonWidth] = useState(400)
-    const [titlePlace, setTitlePlace] = useState(100)
-    const [iconMarginLeft, setIconMarginLeft] = useState(100)
-    const [iconMarginRight, setIconMarginRight] = useState(100)
-    const [isIcon, setIcon] = useState(false)
-    const [iconWidth, setIconWidth] = useState('')
+    const [size, setSize] = useState('block')
 
     return (
         <div>
-            <Button isIcon={isIcon}
-                    disabled={disabled}
+            <Button disabled={disabled}
                     title='Block + primary'
                     xType={xType}
-                    buttonWidth={buttonWidth}
-                    buttonHeight={buttonHeight}
-                    iconPosition={iconPlace}
-                    titlePosition={titlePlace}
-                    iconWidth={iconWidth}
-                    iconMarginLeft={iconMarginLeft}
-                    iconMarginRight={iconMarginRight}
+                    size={size}
+                    icon={iconPlace}
             />
-            <div>
-                <b>xType</b>
-                <select value={xType} onChange={(e) => setXType(e.currentTarget.value)}>
-                    {xTypes.map((option) => (
-                        <option
-                            key={option.id}
-                            value={option.value}
-                        >
-                            {option.value}
-                        </option>))}
-                </select>
-            </div>
-            <div>
-                <b>Disabled</b>
-                <input checked={disabled}
-                       type={'checkbox'}
-                       onChange={(e) => setDisabled(e.currentTarget.checked)}/>
-            </div>
-            <div>
-                <b>buttonHeight</b>
-                <select value={buttonHeight} onChange={(e) => setButtonHeight(e.currentTarget.value)}>
-                    {buttonHeights.map((option) => (
-                        <option key={option.id} value={option.value}>
-                            {option.value}
-                        </option>))}
-                </select>
-            </div>
-            <div>
-                <div><b>buttonWidth</b></div>
-                <span>{0}</span>
-                <Slider sx={{width: 200}} size="small" max={400} onChange={(event, value) => {
-                    setButtonWidth(value)
-                }}/>
-                <span>{buttonWidth}</span>
-            </div>
-            <div>
-                <div><b>titlePosition</b></div>
-                <span>{0}</span>
-                <Slider sx={{width: 200}} size="small" onChange={(event, value) => {
-                    setTitlePlace(value)
-                }}/>
-                <span>{titlePlace}</span>
-            </div>
-            <div>
-                <b>isIcon</b>
-                <input checked={isIcon}
-                       type={'checkbox'}
-                       onChange={(e) => setIcon(e.currentTarget.checked)}/>
-            </div>
-            <div>
-                <b>iconWidth</b>
-                <select value={iconWidth} onChange={(e) => setIconWidth(e.currentTarget.value)}>
-                    {iconWidths.map((option) => (
-                        <option key={option.id} value={option.value}>
-                            {option.value}
-                        </option>))}
-                </select>
-            </div>
-            <div>
-                <b>iconPosition</b>
-                <select value={iconPlace} onChange={(e) => setIconPlace(e.currentTarget.value)}>
-                    {iconPlaces.map((option) => (
-                        <option key={option.id} value={option.value}>
-                            {option.value}
-                        </option>))}
-                </select>
-            </div>
-            <div>
-                <div><b>iconMarginLeft</b></div>
-                <span>{0}</span>
-                <Slider sx={{width: 200}} size="small" onChange={(event, value) => {
-                    setIconMarginLeft(value)
-                }}/>
-                <span>{iconMarginLeft}</span>
-            </div>
-            <div>
-                <div><b>iconMarginRight</b></div>
-                <span>{0}</span>
-                <Slider sx={{width: 200}} size="small" onChange={(event, value) => {
-                    setIconMarginRight(value)
-                }}/>
-                <span>{iconMarginRight}</span>
+            <br/>
+            <b>Disabled</b>
+            <input checked={disabled}
+                   type={'checkbox'}
+                   onChange={(e) => setDisabled(e.currentTarget.checked)}/>
+            &nbsp;&nbsp;
+            <div style={{display: "flex"}}>
+                <div style={{marginRight: '50px'}}>
+                    <div>
+                        <b>xType</b>
+                        <select value={xType} onChange={(e) => setXType(e.currentTarget.value)}>
+                            {xTypes.map((option) => (
+                                <option
+                                    key={option.id}
+                                    value={option.value}
+                                >
+                                    {option.value}
+                                </option>))}
+                        </select>
+                    </div>
+                    <div>
+                        <b>size</b>
+                        <select value={size} onChange={(e) => setSize(e.currentTarget.value)}>
+                            {sizes.map((option) => (
+                                <option
+                                    key={option.id}
+                                    value={option.value}
+                                >
+                                    {option.value}
+                                </option>))}
+                        </select>
+                    </div>
+                    <div>
+                        <b>iconPosition</b>
+                        <select value={iconPlace} onChange={(e) => setIconPlace(e.currentTarget.value)}>
+                            {<option value={''}>{'none'}</option>}
+                            {<option value={'iconLeft'}>{'iconLeft'}</option>}
+                            {<option value={'iconRight'}>{'iconRight'}</option>}
+                            {<option value={'iconSide'}>{'iconSide'}</option>}
+                            {<option value={'iconLeftLargeButton'}>{'iconLeftLargeButton'}</option>}
+                            {<option value={'iconRightLargeButton'}>{'iconRightLargeButton'}</option>}
+                            {<option value={'iconSideLargeButton'}>{'iconSideLargeButton'}</option>}
+                            {<option value={'iconLeftSmallButton'}>{'iconLeftSmallButton'}</option>}
+                            {<option value={'iconRightSmallButton'}>{'iconRightSmallButton'}</option>}
+                            {<option value={'iconSideSmallButton'}>{'iconSideSmallButton'}</option>}
+                        </select>
+                    </div>
+                </div>
+                <br/>
             </div>
         </div>
     );

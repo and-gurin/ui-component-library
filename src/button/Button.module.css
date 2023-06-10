@@ -9,24 +9,90 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     position: relative;
+    height: 48px;
+}
+
+.titleLarge {
+    margin: 0 24px;
+}
+
+.titleSmall {
+    margin: 0 8px;
+}
+
+.titleLargeIconSide {
+    margin: 0 24px 0 8px;
+}
+
+.titleSmallIconSide {
+    margin: 0 8px 0 4px;
+}
+
+.block {
+    width: 327px;
+    text-align: center;
+}
+
+.large {
+    min-width: 182px;
+    padding: 0 8px;
+}
+
+.small {
+    min-width: 152px;
+    padding: 0 8px;
+    height: 32px;
 }
 
 .iconLeft {
     position: absolute;
     left: 16px;
+    width: 24px;
+}
+
+.iconLeftLargeButton {
+    margin:  0 0 0 8px;
+    width: 24px;
+}
+
+.iconLeftSmallButton {
+    margin-left: 0;
+    width: 16px;
 }
 
 .iconRight {
     position: absolute;
-    margin-left: auto;
     right: 16px;
+    width: 24px;
+}
+
+.iconRightLargeButton {
+    margin: 0 8px 0 0;
+    order: 2;
+    width: 24px;
+}
+
+.iconRightSmallButton {
+    margin-right: 0;
+    order: 2;
+    width: 16px;
 }
 
 .iconSide {
-    position: absolute;
-    margin-left: 70px;
+    margin: 0 8px 0 24px;
+    width: 24px;
+}
+
+.iconSideLargeButton {
+    margin: 0 0 0 24px;
+    width: 24px;
+}
+
+.iconSideSmallButton {
+    margin: 0;
+    width: 16px;
 }
 
 .primary {

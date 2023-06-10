@@ -1,33 +1,59 @@
 import React from 'react';
 import style from './Button.module.css'
 import IconArrow from "assets/icons/icon-arrow";
+import IconMessage from "assets/icons/icon-message";
 
-const Button = ({disabled, title, titlePosition, icon, iconMarginLeft, iconMarginRight, iconWidth, iconPosition, buttonWidth, buttonHeight, xType}) => {
+const icons = {
+    iconArrow :IconArrow,
+    iconMessage: IconMessage,
+}
 
-    let finalClassName = style.button;
+const Button = ({disabled, title, size, icon, xType}) => {
+
+    let finalButtonClassName = style.button;
     let iconClassName;
+    let titleClassName;
 
     if (xType) {
-        finalClassName += ` ${style[xType]}`
+        finalButtonClassName += ` ${style[xType]}`
+    }
+
+    if (size) {
+        finalButtonClassName += ` ${style[size]}`
+    }
+
+    if (size === 'large') {
+        titleClassName = `${style.titleLarge}`
+    }
+
+    if (size === 'small') {
+        titleClassName = `${style.titleSmall}`
     }
 
     if (disabled) {
-        finalClassName += `${style[`${xType}Disabled`]}`
+        finalButtonClassName += ` ${style[`${xType}Disabled`]}`
     }
 
-    if (iconPosition) {
-        iconClassName = `${style[iconPosition]}`
+    if (icon) {
+        iconClassName = `${style[icon]}`
+    }
+
+    if (icon === 'iconSideLargeButton') {
+        titleClassName = `${style.titleLargeIconSide}`
+    }
+
+    if (icon === 'iconSideSmallButton') {
+        titleClassName = `${style.titleSmallIconSide}`
     }
 
     return (
         <button disabled={disabled}
-                style={{width: buttonWidth, height: buttonHeight}}
-                className={finalClassName}>
-            {icon && <div style={{width: iconWidth, left: iconMarginLeft, right: iconMarginRight}} className={iconClassName}>
-                <IconArrow finalClassName={finalClassName}/>
+                className={finalButtonClassName}>
+            {icon && <div className={iconClassName}>
+                <icons.iconMessage finalClassName={finalButtonClassName}/>
             </div>
             }
-                <div style={{marginLeft: titlePosition}} >{title}</div>
+                <div className={titleClassName}>{title}</div>
         </button>
     );
 };
