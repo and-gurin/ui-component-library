@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
 import Button from 'button/Button';
+import IconArrow from "assets/icons/icon-arrow";
+import IconMessage from "assets/icons/icon-message";
+
+const icons = {
+    iconArrow :IconArrow,
+    iconMessage: IconMessage,
+}
 
 const xTypes = [
     {id: 1, value: 'primary'},
@@ -17,8 +24,10 @@ const sizes = [
 const Stand = () => {
     const [xType, setXType] = useState('primary')
     const [disabled, setDisabled] = useState(false)
-    const [iconPlace, setIconPlace] = useState('')
+    const [icon, setIcon] = useState(false)
+    const [iconPlace, setIconPlace] = useState('iconLeft')
     const [size, setSize] = useState('block')
+    const isIcon = icon && icons['iconArrow']
 
     return (
         <div>
@@ -26,7 +35,8 @@ const Stand = () => {
                     title='Block + primary'
                     xType={xType}
                     size={size}
-                    icon={iconPlace}
+                    Icon={isIcon}
+                    iconPosition={iconPlace}
             />
             <br/>
             <b>Disabled</b>
@@ -60,10 +70,14 @@ const Stand = () => {
                                 </option>))}
                         </select>
                     </div>
+                    <b>Icon</b>
+                    <input checked={icon}
+                           type={'checkbox'}
+                           onChange={(e) => setIcon(e.currentTarget.checked)}/>
+                    &nbsp;&nbsp;
                     <div>
                         <b>iconPosition</b>
                         <select value={iconPlace} onChange={(e) => setIconPlace(e.currentTarget.value)}>
-                            {<option value={''}>{'none'}</option>}
                             {<option value={'iconLeft'}>{'iconLeft'}</option>}
                             {<option value={'iconRight'}>{'iconRight'}</option>}
                             {<option value={'iconSide'}>{'iconSide'}</option>}

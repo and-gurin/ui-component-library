@@ -107,7 +107,7 @@
     color: var(--sky-white);
 }
 
-.primaryDisabled {
+.primary:disabled {
     border: solid 1px var(--sky-light);
     background-color: var(--sky-light);
     color: var(--sky-dark);
@@ -125,7 +125,7 @@
     color: var(--primary-base);
 }
 
-.secondaryDisabled {
+.secondary:disabled {
     border: solid 1px var(--sky-light);
     background-color: var(--sky-light);
     color: var(--sky-dark);
@@ -143,7 +143,7 @@
     color: var(--primary-dark);
 }
 
-.outlineDisabled {
+.outline:disabled {
     border: solid 1px var(--sky-base);
     color: var(--sky-base);
 }
@@ -160,7 +160,7 @@
     color: var(--primary-base);
 }
 
-.transparentDisabled {
+.transparent:disabled {
     color: var(--sky-base);
 }
 

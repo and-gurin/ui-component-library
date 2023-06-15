@@ -1,26 +1,12 @@
 import React from 'react';
 import style from './Button.module.css'
-import IconArrow from "assets/icons/icon-arrow";
-import IconMessage from "assets/icons/icon-message";
 
-const icons = {
-    iconArrow :IconArrow,
-    iconMessage: IconMessage,
-}
 
-const Button = ({disabled, title, size, icon, xType}) => {
+const Button = ({disabled, title, size, Icon, iconPosition, xType}) => {
 
-    let finalButtonClassName = style.button;
-    let iconClassName;
+    const finalButtonClassName = [style.button, style[xType], style[size]].filter(Boolean).join(' ')
+
     let titleClassName;
-
-    if (xType) {
-        finalButtonClassName += ` ${style[xType]}`
-    }
-
-    if (size) {
-        finalButtonClassName += ` ${style[size]}`
-    }
 
     if (size === 'large') {
         titleClassName = `${style.titleLarge}`
@@ -30,29 +16,18 @@ const Button = ({disabled, title, size, icon, xType}) => {
         titleClassName = `${style.titleSmall}`
     }
 
-    if (disabled) {
-        finalButtonClassName += ` ${style[`${xType}Disabled`]}`
-    }
-
-    if (icon) {
-        iconClassName = `${style[icon]}`
-    }
-
-    if (icon === 'iconSideLargeButton') {
+    if (iconPosition === 'iconSideLargeButton') {
         titleClassName = `${style.titleLargeIconSide}`
     }
 
-    if (icon === 'iconSideSmallButton') {
+    if (iconPosition === 'iconSideSmallButton') {
         titleClassName = `${style.titleSmallIconSide}`
     }
 
     return (
         <button disabled={disabled}
                 className={finalButtonClassName}>
-            {icon && <div className={iconClassName}>
-                <icons.iconMessage finalClassName={finalButtonClassName}/>
-            </div>
-            }
+            {Icon && <Icon finalClassName={style[iconPosition]}/>}
                 <div className={titleClassName}>{title}</div>
         </button>
     );
