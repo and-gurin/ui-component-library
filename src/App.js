@@ -1,10 +1,9 @@
+import Stand from './Stand';
 
 function App() {
-  return (
-    <>
-
-    </>
-  );
+    return (
+        <Stand/>
+    );
 }
 
 export default App;

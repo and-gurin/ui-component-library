@@ -1,0 +1,167 @@
+@import 'base.css';
+
+.button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 48px;
+}
+
+.titleLarge {
+    margin: 0 24px;
+}
+
+.titleSmall {
+    margin: 0 8px;
+}
+
+.titleLargeIconSide {
+    margin: 0 24px 0 8px;
+}
+
+.titleSmallIconSide {
+    margin: 0 8px 0 4px;
+}
+
+.block {
+    width: 327px;
+    text-align: center;
+}
+
+.large {
+    min-width: 182px;
+    padding: 0 8px;
+}
+
+.small {
+    min-width: 152px;
+    padding: 0 8px;
+    height: 32px;
+}
+
+.iconLeftBlockButton {
+    position: absolute;
+    left: 16px;
+    width: 24px;
+}
+
+.iconLeftLargeButton {
+    margin:  0 0 0 8px;
+    width: 24px;
+}
+
+.iconLeftSmallButton {
+    margin-left: 0;
+    width: 16px;
+}
+
+.iconRightBlockButton {
+    position: absolute;
+    right: 16px;
+    width: 24px;
+}
+
+.iconRightLargeButton {
+    margin: 0 8px 0 0;
+    order: 2;
+    width: 24px;
+}
+
+.iconRightSmallButton {
+    margin-right: 0;
+    order: 2;
+    width: 16px;
+}
+
+.iconSideBlockButton {
+    margin: 0 8px 0 24px;
+    width: 24px;
+}
+
+.iconSideLargeButton {
+    margin: 0 0 0 24px;
+    width: 24px;
+}
+
+.iconSideSmallButton {
+    margin: 0;
+    width: 16px;
+}
+
+.primary {
+    border: solid 1px var(--primary-base);
+    background-color: var(--primary-base);
+    color: var(--sky-white);
+}
+
+.primary:active {
+    border: solid 1px var(--primary-dark);
+    background-color: var(--primary-dark);
+    color: var(--sky-white);
+}
+
+.primary:disabled {
+    border: solid 1px var(--sky-light);
+    background-color: var(--sky-light);
+    color: var(--sky-dark);
+}
+
+.secondary {
+    border: solid 1px var(--primary-lightest);
+    background-color: var(--primary-lightest);
+    color: var(--primary-base);
+}
+
+.secondary:active {
+    border: solid 1px var(--primary-lighter);
+    background-color: var(--primary-lighter);
+    color: var(--primary-base);
+}
+
+.secondary:disabled {
+    border: solid 1px var(--sky-light);
+    background-color: var(--sky-light);
+    color: var(--sky-dark);
+}
+
+.outline {
+    border: solid 1px var(--primary-base);
+    background: none;
+    color: var(--primary-base);
+}
+
+.outline:active {
+    border: solid 1px var(--primary-dark);
+    background: none;
+    color: var(--primary-dark);
+}
+
+.outline:disabled {
+    border: solid 1px var(--sky-base);
+    color: var(--sky-base);
+}
+
+.transparent {
+    color: var(--primary-base);
+    background: none;
+    border: none;
+}
+
+.transparent:active {
+    border: solid 1px var(--primary-lightest);
+    background-color: var(--primary-lightest);
+    color: var(--primary-base);
+}
+
+.transparent:disabled {
+    color: var(--sky-base);
+}
+
+
