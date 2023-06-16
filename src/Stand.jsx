@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Button from 'button/Button';
 import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
+import Input from 'input/Input';
 
 const icons = {
     iconArrow: IconArrow,
@@ -28,6 +29,12 @@ const Stand = () => {
     const [iconPlace, setIconPlace] = useState('iconLeftBlockButton')
     const [size, setSize] = useState('block')
     const isIcon = icon && icons['iconArrow']
+
+    const [error, setError] = useState(false)
+    const [isTextLabel, setTextLabel] = useState(false)
+    const [value, setValue] = useState('')
+    const textLabel = isTextLabel && 'Text label'
+    const onChangeHandler = (e) => setValue(e.target.value)
 
     return (
         <div>
@@ -89,6 +96,30 @@ const Stand = () => {
                             {<option value={'iconRightSmallButton'}>{'iconRightSmallButton'}</option>}
                             {<option value={'iconSideSmallButton'}>{'iconSideSmallButton'}</option>}
                         </select>
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <Input disabled={disabled}
+                           error={error}
+                           caption='Block + primary'
+                           placeholderText='Placeholder text'
+                           textLabel={textLabel}
+                           onChangeHandler={onChangeHandler}
+                           value={value}
+                    />
+                    <br/>
+                    <div>
+                        <b>error</b>
+                        <input checked={error}
+                               type={'checkbox'}
+                               onChange={(e) => setError(e.currentTarget.checked)}/>
+                    </div>
+                    <div>
+                        <b>text label</b>
+                        <input checked={isTextLabel}
+                               type={'checkbox'}
+                               onChange={(e) => setTextLabel(e.currentTarget.checked)}/>
                     </div>
                 </div>
             </div>
