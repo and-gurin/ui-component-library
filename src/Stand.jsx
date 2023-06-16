@@ -78,9 +78,9 @@ const Stand = () => {
                     <div>
                         <b>iconPosition</b>
                         <select value={iconPlace} onChange={(e) => setIconPlace(e.currentTarget.value)}>
-                            {<option value={'iconLeft'}>{'iconLeft'}</option>}
-                            {<option value={'iconRight'}>{'iconRight'}</option>}
-                            {<option value={'iconSide'}>{'iconSide'}</option>}
+                            {<option value={'iconLeftBlockButton'}>{'iconLeftBlockButton'}</option>}
+                            {<option value={'iconRightBlockButton'}>{'iconRightBlockButton'}</option>}
+                            {<option value={'iconSideBlockButton'}>{'iconSideBlockButton'}</option>}
                             {<option value={'iconLeftLargeButton'}>{'iconLeftLargeButton'}</option>}
                             {<option value={'iconRightLargeButton'}>{'iconRightLargeButton'}</option>}
                             {<option value={'iconSideLargeButton'}>{'iconSideLargeButton'}</option>}

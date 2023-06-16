@@ -46,7 +46,7 @@
     height: 32px;
 }
 
-.iconLeft {
+.iconLeftBlockButton {
     position: absolute;
     left: 16px;
     width: 24px;
@@ -62,7 +62,7 @@
     width: 16px;
 }
 
-.iconRight {
+.iconRightBlockButton {
     position: absolute;
     right: 16px;
     width: 24px;
@@ -80,7 +80,7 @@
     width: 16px;
 }
 
-.iconSide {
+.iconSideBlockButton {
     margin: 0 8px 0 24px;
     width: 24px;
 }
