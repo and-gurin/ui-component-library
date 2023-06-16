@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import Button from 'button/Button';
 import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
-import Input from 'input/Input';
-import {Slider} from '@mui/material';
 
 const icons = {
     iconArrow: IconArrow,
@@ -30,11 +28,6 @@ const Stand = () => {
     const [iconPlace, setIconPlace] = useState('iconLeftBlockButton')
     const [size, setSize] = useState('block')
     const isIcon = icon && icons['iconArrow']
-
-    const [inputWidth, setInputWidth] = useState(400)
-    const [isError, setError] = useState(false)
-    const [isTextLabel, setTextLabel] = useState(false)
-    const textLabel = isTextLabel && 'Text label'
 
     return (
         <div>
@@ -96,37 +89,6 @@ const Stand = () => {
                             {<option value={'iconRightSmallButton'}>{'iconRightSmallButton'}</option>}
                             {<option value={'iconSideSmallButton'}>{'iconSideSmallButton'}</option>}
                         </select>
-                    </div>
-                </div>
-                <br/>
-                <div>
-                    <Input disabled={disabled}
-                           error={isError}
-                           caption='Block + primary'
-                           inputWidth={inputWidth}
-                           placeholderText='Placeholder text'
-                           textLabel={textLabel}
-                    />
-                    <br/>
-                    <div>
-                        <div><b>width</b></div>
-                        <span>{0}</span>
-                        <Slider sx={{width: 200}} size="small" max={400} onChange={(event, value) => {
-                            setInputWidth(value)
-                        }}/>
-                        <span>{inputWidth}</span>
-                    </div>
-                    <div>
-                        <b>isError</b>
-                        <input checked={isError}
-                               type={'checkbox'}
-                               onChange={(e) => setError(e.currentTarget.checked)}/>
-                    </div>
-                    <div>
-                        <b>isText</b>
-                        <input checked={isTextLabel}
-                               type={'checkbox'}
-                               onChange={(e) => setTextLabel(e.currentTarget.checked)}/>
                     </div>
                 </div>
             </div>
