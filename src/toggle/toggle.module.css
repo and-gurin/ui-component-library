@@ -1,0 +1,65 @@
+@import 'base.css';
+
+.label {
+    display: inline-block;
+    position: relative;
+    height: 32px;
+    width: 56px;
+    background-color: var(--sky-light);
+    cursor: pointer;
+    color: transparent;
+    border-radius: 16px;
+    border: 1px solid var(--sky-light);
+    transition: background-color 500ms ease;
+}
+
+.label:after {
+    content: '';
+    display: block;
+    height: 27px;
+    width: 27px;
+    position: absolute;
+    top: 2px;
+    right: 26px;
+    border-radius: 50%;
+    background-color: var(--sky-white);
+    transition: right 500ms ease,
+    background-color 500ms ease,
+    box-shadow 500ms ease;
+}
+
+.toggle:checked + label {
+    background: var(--primary-base);
+}
+
+.toggle:checked + label:after {
+    right: 2px;
+    background-color: var(--sky-white);
+}
+
+.toggle:checked:disabled + label {
+    background: var(--sky-light);
+}
+
+.toggle:checked:disabled + label:after {
+    right: 2px;
+    background-color: var(--sky-lighter);
+}
+
+.toggle:disabled + label {
+    background-color: var(--sky-white);
+    border: 1px solid var(--sky-light);
+}
+
+.toggle:disabled + label:after {
+    background-color: var(--sky-light);
+}
+
+.toggle {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    bottom: 0;
+}
