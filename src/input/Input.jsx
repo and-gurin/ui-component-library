@@ -23,8 +23,8 @@ const Input = ({
                    disabled={disabled}
                    placeholder={placeholderText}
             />
-            {!error ? <div className={style.caption}>{caption}</div> :
-                <div className={style.errorMessage}>Error Message</div>}
+            {caption ? <div className={style.caption}>Block + primary</div> :
+                error ? <div className={style.errorMessage}>Error Message</div> : null}
         </>
     );
 };

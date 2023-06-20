@@ -30,6 +30,7 @@ const Stand = () => {
     const [size, setSize] = useState('block')
     const isIcon = icon && icons['iconArrow']
 
+    const [caption, setCaption] = useState(false)
     const [error, setError] = useState(false)
     const [isTextLabel, setTextLabel] = useState(false)
     const [value, setValue] = useState('')
@@ -102,13 +103,19 @@ const Stand = () => {
                 <div>
                     <Input disabled={disabled}
                            error={error}
-                           caption='Block + primary'
+                           caption={caption}
                            placeholderText='Placeholder text'
                            textLabel={textLabel}
                            onChangeHandler={onChangeHandler}
                            value={value}
                     />
                     <br/>
+                    <div>
+                        <b>caption</b>
+                        <input checked={caption}
+                               type={'checkbox'}
+                               onChange={(e) => setCaption(e.currentTarget.checked)}/>
+                    </div>
                     <div>
                         <b>error</b>
                         <input checked={error}
