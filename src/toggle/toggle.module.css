@@ -10,7 +10,7 @@
     color: transparent;
     border-radius: 16px;
     border: 1px solid var(--sky-light);
-    transition: background-color 500ms ease;
+    transition: background-color 300ms ease;
 }
 
 .label:after {
@@ -20,7 +20,7 @@
     width: 27px;
     position: absolute;
     top: 2px;
-    right: 26px;
+    right: 25px;
     border-radius: 50%;
     background-color: var(--sky-white);
     transition: right 500ms ease,
@@ -30,6 +30,7 @@
 
 .toggle:checked + label {
     background: var(--primary-base);
+    border: 1px solid transparent;
 }
 
 .toggle:checked + label:after {
@@ -39,6 +40,7 @@
 
 .toggle:checked:disabled + label {
     background: var(--sky-light);
+    border: 1px solid transparent;
 }
 
 .toggle:checked:disabled + label:after {
