@@ -3,6 +3,7 @@ import Button from 'button/Button';
 import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
 import Input from 'input/Input';
+import Toggle from "toggle/toggle";
 
 const icons = {
     iconArrow: IconArrow,
@@ -35,7 +36,12 @@ const Stand = () => {
     const [isTextLabel, setTextLabel] = useState(false)
     const [value, setValue] = useState('')
     const textLabel = isTextLabel && 'Text label'
-    const onChangeHandler = (e) => setValue(e.target.value)
+    const onChangeInputHandler = (e) => setValue(e.target.value)
+
+    const [toggleChecked, setToggleChecked] = useState(false)
+    const onChangeToggleHandler = (e) => setToggleChecked(e.currentTarget.checked)
+
+
 
     return (
         <div>
@@ -45,7 +51,7 @@ const Stand = () => {
                    type={'checkbox'}
                    onChange={(e) => setDisabled(e.currentTarget.checked)}/>
             &nbsp;&nbsp;
-            <div style={{display: "flex"}}>
+            <div style={{display: "flex", flexWrap: 'wrap'}}>
                 <div style={{marginRight: '50px'}}>
                     <Button disabled={disabled}
                             title='Block + primary'
@@ -100,13 +106,13 @@ const Stand = () => {
                     </div>
                 </div>
                 <br/>
-                <div>
+                <div style={{marginRight: '50px'}}>
                     <Input disabled={disabled}
                            error={error}
                            caption={caption}
                            placeholderText='Placeholder text'
                            textLabel={textLabel}
-                           onChangeHandler={onChangeHandler}
+                           onChangeHandler={onChangeInputHandler}
                            value={value}
                     />
                     <br/>
@@ -128,6 +134,11 @@ const Stand = () => {
                                type={'checkbox'}
                                onChange={(e) => setTextLabel(e.currentTarget.checked)}/>
                     </div>
+                </div>
+                <div>
+                    <Toggle disabled={disabled}
+                            onChange={onChangeToggleHandler}
+                            checked={toggleChecked}/>
                 </div>
             </div>
         </div>
