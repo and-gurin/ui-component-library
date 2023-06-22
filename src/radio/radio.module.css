@@ -1,0 +1,63 @@
+@import 'base.css';
+
+.radioLabel {
+    margin-right: 7px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.radioInput {
+    margin: 0;
+    visibility: hidden;
+}
+
+.radioInput:checked + span {
+    background: var(--primary-base);
+    border: 1px solid transparent;
+}
+
+.radioInput:checked + span:after {
+    background-color: var(--sky-white);
+}
+
+.radioInput:checked:disabled + span {
+    background: var(--sky-light);
+    border: 1px solid var(--sky-light);
+}
+
+.radioInput:checked:disabled + span:after {
+    background-color: var(--sky-lighter);
+}
+
+.radioInput:disabled + span {
+    background: var(--sky-white);
+    border: 1px solid var(--sky-base);
+}
+
+.radioInput:disabled + span:after {
+    background-color: var(--sky-white);
+}
+
+.customRadio {
+    left: -8px;
+    top: 6px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--sky-base);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: background-color 300ms ease;
+}
+
+.customRadio::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: var(--sky-white);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
