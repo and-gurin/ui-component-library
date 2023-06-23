@@ -5,6 +5,7 @@ import IconMessage from "assets/icons/icon-message";
 import Input from 'input/Input';
 import Toggle from "toggle/toggle";
 import Radio from "radio/radio";
+import Checkbox from "checkbox/checkbox";
 
 const icons = {
     iconArrow: IconArrow,
@@ -56,6 +57,11 @@ const Stand = () => {
             setRadioValue({ empty: false, full: true })
         }
     }
+
+    //checkbox
+    const [checkboxChecked, setCheckboxChecked] = useState(false)
+    const onChangeCheckboxHandler = (e) => setCheckboxChecked(e.currentTarget.checked)
+
 
     return (
         <div>
@@ -158,7 +164,7 @@ const Stand = () => {
                             onChange={onChangeToggleHandler}
                             checked={toggleChecked}/>
                 </div>
-                <div>
+                <div style={{marginRight: '50px'}}>
                     <Radio disabled={disabled}
                            name={'empty'}
                            value={'empty'}
@@ -171,6 +177,12 @@ const Stand = () => {
                            id={'full'}
                            onChange={onChangeTheme}
                            checked={radioValue.full}/>
+                </div>
+                <div>
+                    <Checkbox
+                        disabled={disabled}
+                        onChange={onChangeCheckboxHandler}
+                        checked={checkboxChecked}/>
                 </div>
             </div>
         </div>
