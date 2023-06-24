@@ -172,7 +172,7 @@ const Stand = () => {
             </div>
             <br/>
             <br/>
-            <div style={{display: "flex", flexWrap: 'wrap'}}>
+            <div style={{display: "flex", flexWrap: 'wrap', marginBottom: '50px'}}>
                 <div style={{marginRight: '50px'}}>
                     <Toggle disabled={disabled}
                             onChange={onChangeToggleHandler}
@@ -219,6 +219,7 @@ const Stand = () => {
             </div>
             <div>
                 <Button xType={'secondary'}
+                        onClick={() => setIsOpen(true)}
                         title={'Open popover'}
                         size={'block'}/>
                 {isOpen && <Popover setIsOpen={setIsOpen}/>}
