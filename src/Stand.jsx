@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import Button from 'button/Button';
 import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
@@ -8,6 +8,7 @@ import Radio from "radio/radio";
 import Checkbox from "checkbox/checkbox";
 import MultiRangeSlider from "range/multiRangeSlider";
 import RangeSlider from "range/rangeSlider";
+import Popover from "popover/popover";
 
 const icons = {
     iconArrow: IconArrow,
@@ -72,6 +73,9 @@ const Stand = () => {
         const value = event.target.value
         setSliderValue(value);
     }
+
+    //popover
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div>
@@ -212,6 +216,12 @@ const Stand = () => {
                         />
                     </div>
                 </div>
+            </div>
+            <div>
+                <Button xType={'secondary'}
+                        title={'Open popover'}
+                        size={'block'}/>
+                {isOpen && <Popover setIsOpen={setIsOpen}/>}
             </div>
         </div>
     );
