@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import Button from 'button/Button';
 import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
@@ -6,6 +6,8 @@ import Input from 'input/Input';
 import Toggle from "toggle/toggle";
 import Radio from "radio/radio";
 import Checkbox from "checkbox/checkbox";
+import MultiRangeSlider from "range/multiRangeSlider";
+import RangeSlider from "range/rangeSlider";
 
 const icons = {
     iconArrow: IconArrow,
@@ -44,17 +46,17 @@ const Stand = () => {
 
     //toggle
     const [toggleChecked, setToggleChecked] = useState(false)
-    const onChangeToggleHandler = (e) => setToggleChecked(e.currentTarget.checked)
+    const onChangeToggleHandler = (e) => setToggleChecked(e.currentTarget.checked);
 
     //radio
-    const [radioValue, setRadioValue] = useState({ empty: false, full: false })
+    const [radioValue, setRadioValue] = useState({empty: false, full: false})
     const onChangeTheme = (e) => {
-        const { name } = e.target
+        const {name} = e.target
         if (name === 'empty') {
-            setRadioValue({ empty: true, full: false })
+            setRadioValue({empty: true, full: false})
         }
         if (name === 'full') {
-            setRadioValue({ empty: false, full: true })
+            setRadioValue({empty: false, full: true})
         }
     }
 
@@ -62,6 +64,14 @@ const Stand = () => {
     const [checkboxChecked, setCheckboxChecked] = useState(false)
     const onChangeCheckboxHandler = (e) => setCheckboxChecked(e.currentTarget.checked)
 
+    //slider multiSlider
+    const min = 0
+    const max = 500
+    const [sliderValue, setSliderValue] = useState(min)
+    const onChangeRangeHandler = (event) => {
+        const value = event.target.value
+        setSliderValue(value);
+    }
 
     return (
         <div>
@@ -178,11 +188,29 @@ const Stand = () => {
                            onChange={onChangeTheme}
                            checked={radioValue.full}/>
                 </div>
-                <div>
+                <div style={{marginRight: '50px'}}>
                     <Checkbox
                         disabled={disabled}
                         onChange={onChangeCheckboxHandler}
                         checked={checkboxChecked}/>
+                </div>
+                <div>
+                    <div style={{marginBottom: '50px'}}>
+                        <RangeSlider
+                            min={min}
+                            max={max}
+                            onChange={onChangeRangeHandler}
+                            value={sliderValue}
+                            />
+
+                    </div>
+                    <div>
+                        <MultiRangeSlider
+                            min={min}
+                            max={max}
+                            onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
