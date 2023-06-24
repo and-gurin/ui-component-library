@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Button.module.css'
 
 
-const Button = ({disabled, title, size, Icon, iconPosition, xType}) => {
+const Button = ({disabled, title, size, Icon, iconPosition, xType, onClick}) => {
 
     const finalButtonClassName = [style.button, style[xType], style[size]].filter(Boolean).join(' ')
 
@@ -26,6 +26,7 @@ const Button = ({disabled, title, size, Icon, iconPosition, xType}) => {
 
     return (
         <button disabled={disabled}
+                onClick={onClick}
                 className={finalButtonClassName}>
             {Icon && <Icon finalClassName={style[iconPosition]}/>}
                 <div className={titleClassName}>{title}</div>
