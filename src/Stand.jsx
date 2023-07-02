@@ -4,6 +4,7 @@ import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
 import Input from 'input/Input';
 import Toggle from "toggle/toggle";
+import Radio from "radio/radio";
 
 const icons = {
     iconArrow: IconArrow,
@@ -24,6 +25,7 @@ const sizes = [
 ]
 
 const Stand = () => {
+    //button
     const [xType, setXType] = useState('primary')
     const [disabled, setDisabled] = useState(false)
     const [icon, setIcon] = useState(false)
@@ -31,6 +33,7 @@ const Stand = () => {
     const [size, setSize] = useState('block')
     const isIcon = icon && icons['iconArrow']
 
+    //input
     const [caption, setCaption] = useState(false)
     const [error, setError] = useState(false)
     const [isTextLabel, setTextLabel] = useState(false)
@@ -38,10 +41,21 @@ const Stand = () => {
     const textLabel = isTextLabel && 'Text label'
     const onChangeInputHandler = (e) => setValue(e.target.value)
 
+    //toggle
     const [toggleChecked, setToggleChecked] = useState(false)
     const onChangeToggleHandler = (e) => setToggleChecked(e.currentTarget.checked)
 
-
+    //radio
+    const [radioValue, setRadioValue] = useState({ empty: false, full: false })
+    const onChangeTheme = (e) => {
+        const { name } = e.target
+        if (name === 'empty') {
+            setRadioValue({ empty: true, full: false })
+        }
+        if (name === 'full') {
+            setRadioValue({ empty: false, full: true })
+        }
+    }
 
     return (
         <div>
@@ -135,10 +149,28 @@ const Stand = () => {
                                onChange={(e) => setTextLabel(e.currentTarget.checked)}/>
                     </div>
                 </div>
-                <div>
+            </div>
+            <br/>
+            <br/>
+            <div style={{display: "flex", flexWrap: 'wrap'}}>
+                <div style={{marginRight: '50px'}}>
                     <Toggle disabled={disabled}
                             onChange={onChangeToggleHandler}
                             checked={toggleChecked}/>
+                </div>
+                <div>
+                    <Radio disabled={disabled}
+                           name={'empty'}
+                           value={'empty'}
+                           id={'empty'}
+                           onChange={onChangeTheme}
+                           checked={radioValue.empty}/>
+                    <Radio disabled={disabled}
+                           name={'full'}
+                           value={'full'}
+                           id={'full'}
+                           onChange={onChangeTheme}
+                           checked={radioValue.full}/>
                 </div>
             </div>
         </div>
