@@ -28,11 +28,29 @@ html {
     --primary-lighter: #C6C4FF;
     --primary-light: #9990FF;
     --primary-base: #6B4EFF;
-    --primary-dark: #5538EE;
+    --primary-darkest: #5538EE;
 
     --red-lightest: #FFE5E5;
     --red-lighter: #FF9898;
     --red-light: #FF6D6D;
     --red-base: #FF5247;
-    --red-dark: #D3180C;
+    --red-darkest: #D3180C;
+
+    --green-lightest: #ECFCE5;
+    --green-lighter: #7DDE86;
+    --green-light: #4CD471;
+    --green-base: #23C16B;
+    --green-darkest: #198155;
+
+    --yellow-lightest: #FFEFD7;
+    --yellow-lighter: #FFD188;
+    --yellow-light: #FFC462;
+    --yellow-base: #FFB323;
+    --yellow-darkest: #A05E03;
+
+    --brand-lightest: #C9F0FF;
+    --brand-lighter: #9BDCFD;
+    --brand-light: #6EC2FB;
+    --brand-base: #48A7F8;
+    --brand-darkest: #0065D0;
 }

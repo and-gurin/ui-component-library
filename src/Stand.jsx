@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import Button from 'button/Button';
 import IconArrow from "assets/icons/icon-arrow";
 import IconMessage from "assets/icons/icon-message";
@@ -8,6 +8,9 @@ import Radio from "radio/radio";
 import Checkbox from "checkbox/checkbox";
 import MultiRangeSlider from "range/multiRangeSlider";
 import RangeSlider from "range/rangeSlider";
+import Popover from "popover/popover";
+import Badge from "badges/badge";
+import style from './Stand.module.css'
 
 const icons = {
     iconArrow: IconArrow,
@@ -73,6 +76,12 @@ const Stand = () => {
         setSliderValue(value);
     }
 
+    //popover
+    const [isOpen, setIsOpen] = useState(false);
+
+    //badge
+    const [badgeStatus, setBadgeStatus] = useState('Success')
+
     return (
         <div>
             <br/>
@@ -81,8 +90,8 @@ const Stand = () => {
                    type={'checkbox'}
                    onChange={(e) => setDisabled(e.currentTarget.checked)}/>
             &nbsp;&nbsp;
-            <div style={{display: "flex", flexWrap: 'wrap'}}>
-                <div style={{marginRight: '50px'}}>
+            <div className={style.standBlock}>
+                <div className={style.standElement}>
                     <Button disabled={disabled}
                             title='Block + primary'
                             xType={xType}
@@ -136,7 +145,7 @@ const Stand = () => {
                     </div>
                 </div>
                 <br/>
-                <div style={{marginRight: '50px'}}>
+                <div className={style.standElement}>
                     <Input disabled={disabled}
                            error={error}
                            caption={caption}
@@ -168,13 +177,13 @@ const Stand = () => {
             </div>
             <br/>
             <br/>
-            <div style={{display: "flex", flexWrap: 'wrap'}}>
-                <div style={{marginRight: '50px'}}>
+            <div className={style.standBlock}>
+                <div className={style.standElement}>
                     <Toggle disabled={disabled}
                             onChange={onChangeToggleHandler}
                             checked={toggleChecked}/>
                 </div>
-                <div style={{marginRight: '50px'}}>
+                <div className={style.standElement}>
                     <Radio disabled={disabled}
                            name={'empty'}
                            value={'empty'}
@@ -188,13 +197,13 @@ const Stand = () => {
                            onChange={onChangeTheme}
                            checked={radioValue.full}/>
                 </div>
-                <div style={{marginRight: '50px'}}>
+                <div className={style.standElement}>
                     <Checkbox
                         disabled={disabled}
                         onChange={onChangeCheckboxHandler}
                         checked={checkboxChecked}/>
                 </div>
-                <div>
+                <div className={style.standElement}>
                     <div style={{marginBottom: '50px'}}>
                         <RangeSlider
                             min={min}
@@ -213,6 +222,27 @@ const Stand = () => {
                     </div>
                 </div>
             </div>
+            <div className={style.standBlock}>
+                <div className={style.standElement}>
+                    <Button xType={'secondary'}
+                            onClick={() => setIsOpen(true)}
+                            title={'Open popover'}
+                            size={'block'}/>
+                    {isOpen && <Popover setIsOpen={setIsOpen}/>}
+                </div>
+                <div className={style.standElement}>
+                    <Badge status={badgeStatus}/>
+                    <br/>
+                    <br/>
+                    <select value={badgeStatus} onChange={(e) => setBadgeStatus(e.currentTarget.value)}>
+                        <option value='success'>Success</option>
+                        <option value='alert'>Alert</option>
+                        <option value='warning'>Warning</option>
+                        <option value='info'>Info</option>
+                    </select>
+                </div>
+            </div>
+
         </div>
     );
 };
