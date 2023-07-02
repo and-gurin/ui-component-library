@@ -1,0 +1,55 @@
+@import 'base.css';
+
+.label {
+    display: inline-block;
+    position: relative;
+    height: 24px;
+    width: 24px;
+    background-color: var(--sky-white);
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid var(--sky-base);
+    transition: background 300ms ease;
+}
+
+.label:after {
+    content: '';
+    display: block;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    background: url('assets/svg/checkbox-checked.svg');
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.toggle:checked + label {
+    border: 1px solid transparent;
+}
+
+.toggle:checked + label:after {
+    opacity: 1;
+}
+
+.toggle:checked:disabled + label {
+    background: var(--sky-light);
+    border: 1px solid transparent;
+}
+
+.toggle:disabled + label {
+    background-color: var(--sky-white);
+    border: 1px solid var(--sky-light);
+}
+
+.toggle:disabled + label:after {
+    background: url('assets/svg/checkbox-checked-disabled.svg');
+}
+
+.toggle {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    bottom: 0;
+}

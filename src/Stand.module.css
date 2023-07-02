@@ -1,0 +1,10 @@
+.standElement {
+    padding: 30px;
+    border: solid 1px;
+    margin: 20px;
+}
+
+.standBlock {
+    display: flex;
+    flex-wrap: wrap;
+}
