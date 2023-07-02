@@ -6,6 +6,11 @@ import Input from 'input/Input';
 import Toggle from "toggle/toggle";
 import Radio from "radio/radio";
 import Checkbox from "checkbox/checkbox";
+import MultiRangeSlider from "range/multiRangeSlider";
+import RangeSlider from "range/rangeSlider";
+import Popover from "popover/popover";
+import Badge from "badges/badge";
+import style from './Stand.module.css'
 
 const icons = {
     iconArrow: IconArrow,
@@ -44,17 +49,17 @@ const Stand = () => {
 
     //toggle
     const [toggleChecked, setToggleChecked] = useState(false)
-    const onChangeToggleHandler = (e) => setToggleChecked(e.currentTarget.checked)
+    const onChangeToggleHandler = (e) => setToggleChecked(e.currentTarget.checked);
 
     //radio
-    const [radioValue, setRadioValue] = useState({ empty: false, full: false })
+    const [radioValue, setRadioValue] = useState({empty: false, full: false})
     const onChangeTheme = (e) => {
-        const { name } = e.target
+        const {name} = e.target
         if (name === 'empty') {
-            setRadioValue({ empty: true, full: false })
+            setRadioValue({empty: true, full: false})
         }
         if (name === 'full') {
-            setRadioValue({ empty: false, full: true })
+            setRadioValue({empty: false, full: true})
         }
     }
 
@@ -62,6 +67,20 @@ const Stand = () => {
     const [checkboxChecked, setCheckboxChecked] = useState(false)
     const onChangeCheckboxHandler = (e) => setCheckboxChecked(e.currentTarget.checked)
 
+    //slider multiSlider
+    const min = 0
+    const max = 500
+    const [sliderValue, setSliderValue] = useState(min)
+    const onChangeRangeHandler = (event) => {
+        const value = event.target.value
+        setSliderValue(value);
+    }
+
+    //popover
+    const [isOpen, setIsOpen] = useState(false);
+
+    //badge
+    const [badgeStatus, setBadgeStatus] = useState('Success')
 
     return (
         <div>
@@ -71,8 +90,8 @@ const Stand = () => {
                    type={'checkbox'}
                    onChange={(e) => setDisabled(e.currentTarget.checked)}/>
             &nbsp;&nbsp;
-            <div style={{display: "flex", flexWrap: 'wrap'}}>
-                <div style={{marginRight: '50px'}}>
+            <div className={style.standBlock}>
+                <div className={style.standElement}>
                     <Button disabled={disabled}
                             title='Block + primary'
                             xType={xType}
@@ -126,7 +145,7 @@ const Stand = () => {
                     </div>
                 </div>
                 <br/>
-                <div style={{marginRight: '50px'}}>
+                <div className={style.standElement}>
                     <Input disabled={disabled}
                            error={error}
                            caption={caption}
@@ -158,13 +177,13 @@ const Stand = () => {
             </div>
             <br/>
             <br/>
-            <div style={{display: "flex", flexWrap: 'wrap'}}>
-                <div style={{marginRight: '50px'}}>
+            <div className={style.standBlock}>
+                <div className={style.standElement}>
                     <Toggle disabled={disabled}
                             onChange={onChangeToggleHandler}
                             checked={toggleChecked}/>
                 </div>
-                <div style={{marginRight: '50px'}}>
+                <div className={style.standElement}>
                     <Radio disabled={disabled}
                            name={'empty'}
                            value={'empty'}
@@ -178,13 +197,52 @@ const Stand = () => {
                            onChange={onChangeTheme}
                            checked={radioValue.full}/>
                 </div>
-                <div>
+                <div className={style.standElement}>
                     <Checkbox
                         disabled={disabled}
                         onChange={onChangeCheckboxHandler}
                         checked={checkboxChecked}/>
                 </div>
+                <div className={style.standElement}>
+                    <div style={{marginBottom: '50px'}}>
+                        <RangeSlider
+                            min={min}
+                            max={max}
+                            onChange={onChangeRangeHandler}
+                            value={sliderValue}
+                            />
+
+                    </div>
+                    <div>
+                        <MultiRangeSlider
+                            min={min}
+                            max={max}
+                            onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+                        />
+                    </div>
+                </div>
             </div>
+            <div className={style.standBlock}>
+                <div className={style.standElement}>
+                    <Button xType={'secondary'}
+                            onClick={() => setIsOpen(true)}
+                            title={'Open popover'}
+                            size={'block'}/>
+                    {isOpen && <Popover setIsOpen={setIsOpen}/>}
+                </div>
+                <div className={style.standElement}>
+                    <Badge status={badgeStatus}/>
+                    <br/>
+                    <br/>
+                    <select value={badgeStatus} onChange={(e) => setBadgeStatus(e.currentTarget.value)}>
+                        <option value='success'>Success</option>
+                        <option value='alert'>Alert</option>
+                        <option value='warning'>Warning</option>
+                        <option value='info'>Info</option>
+                    </select>
+                </div>
+            </div>
+
         </div>
     );
 };
