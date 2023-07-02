@@ -1,0 +1,25 @@
+.badge {
+    padding: 8px 16px;
+    border-radius: 32px;
+    display: inline-block;
+}
+
+.success {
+    color: var(--green-darkest);
+    background-color: var(--green-lightest);
+}
+
+.alert {
+    color: var(--red-darkest);
+    background-color: var(--red-lightest);
+}
+
+.warning {
+    color: var(--yellow-darkest);
+    background-color: var(--yellow-lightest);
+}
+
+.info {
+    color: var(--brand-darkest);
+    background-color: var(--brand-lightest);
+}
