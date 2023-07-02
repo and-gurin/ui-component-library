@@ -1,16 +1,16 @@
 import React from 'react';
 import style from './checkbox.module.css'
 
-const Checkbox = ({disabled, checked, onChange}) => {
+const Checkbox = ({disabled, checked, onChange, id}) => {
     return (
         <div>
             <input className={style.toggle}
                    disabled={disabled}
                    checked={checked}
                    onChange={onChange}
-                   id='checkbox'
+                   id={id}
                    type='checkbox'/>
-            <label className={style.label} htmlFor='checkbox'/>
+            <label className={style.label} htmlFor={id}/>
         </div>
     );
 };

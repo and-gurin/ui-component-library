@@ -200,6 +200,7 @@ const Stand = () => {
                 <div className={style.standElement}>
                     <Checkbox
                         disabled={disabled}
+                        id={'checkbox'}
                         onChange={onChangeCheckboxHandler}
                         checked={checkboxChecked}/>
                 </div>

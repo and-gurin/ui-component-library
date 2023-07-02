@@ -17,7 +17,7 @@ const RangeSlider = ({ min, max, onChange, value }) => {
         if (range.current) {
             range.current.style.width = `${maxPercent - minPercent}%`;
         }
-    }, [value, getPercent]);
+    }, [value, getPercent, min]);
 
 
     return (
