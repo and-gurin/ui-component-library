@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/ui-component-library/static/css/main.7ed17f35.css",
-    "main.js": "/ui-component-library/static/js/main.7bbc46ea.js",
+    "main.css": "/ui-component-library/static/css/main.8d8109c0.css",
+    "main.js": "/ui-component-library/static/js/main.fbfc9d0d.js",
     "index.html": "/ui-component-library/index.html",
-    "main.7ed17f35.css.map": "/ui-component-library/static/css/main.7ed17f35.css.map",
-    "main.7bbc46ea.js.map": "/ui-component-library/static/js/main.7bbc46ea.js.map"
+    "static/media/checkbox-checked-disabled.svg": "/ui-component-library/static/media/checkbox-checked-disabled.e2eb0de04ff441c86dd8.svg",
+    "static/media/checkbox-checked.svg": "/ui-component-library/static/media/checkbox-checked.19b073e3f77547220c0d.svg",
+    "main.8d8109c0.css.map": "/ui-component-library/static/css/main.8d8109c0.css.map",
+    "main.fbfc9d0d.js.map": "/ui-component-library/static/js/main.fbfc9d0d.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ed17f35.css",
-    "static/js/main.7bbc46ea.js"
+    "static/css/main.8d8109c0.css",
+    "static/js/main.fbfc9d0d.js"
   ]
 }
